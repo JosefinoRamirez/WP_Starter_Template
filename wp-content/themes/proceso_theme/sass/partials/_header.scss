@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 25px 25px 10px;
+  box-sizing: border-box;
+  display: block;
+  z-index: 1;
+}
+
+.logo {
+  max-width: 200px;
+  width: 100%;
+  display: block;
+  float: left;
+  img {
+    width: 100%;
+  }
+}
+
+.ham_btn {
+  display: block;
+  width: 40px;
+  height: 40px;
+  float: right;
+  // background: #000;
+  position: relative;
+  padding: 10px 5px;
+  box-sizing: border-box;
+  span {
+    width: 75%;
+    height: 4px;
+    background: #a70818;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    transition: 0.2s;
+  }
+  &::before,
+  &::after {
+    content: '';
+    width: 75%;
+    height: 4px;
+    background: #a70818;
+    display: block;
+    position: absolute;
+    top: 10px;
+    transition: 0.5s;
+  }
+  &::after {
+    bottom: 10px;
+    top: auto;
+  }
+
+  @keyframes closeMenuB {
+    from {
+      transform: rotate(0deg);
+      top: 20px;
+    }
+    to {
+      transform: rotate(45deg);
+      top: 18px;
+    }
+  }
+
+  @keyframes closeMenuB {
+    from {
+      transform: rotate(0deg);
+      top: 20px;
+    }
+    to {
+      transform: rotate(45deg);
+      top: 18px;
+    }
+  }
+
+  @keyframes closeMenuA {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &.ham_active {
+    &::before {
+      top: 20px;
+      height: 4px;
+      -webkit-animation: closeMenuB 0.2s normal forwards ease-in-out; /* Safari 4.0 - 8.0 */
+      animation: closeMenuB 0.2s normal forwards ease-in-out;
+      animation-iteration-count: 1;
+      animation-delay: 0.3s;
+    }
+    &::after {
+      bottom: 18px;
+      -webkit-animation: closeMenuA 0.2s normal forwards ease-in-out; /* Safari 4.0 - 8.0 */
+      animation: closeMenuA 0.2s normal forwards ease-in-out;
+      animation-iteration-count: 1;
+      animation-delay: 0.3s;
+    }
+    span {
+      -webkit-animation: closeMenuA 0.2s normal forwards ease-in-out; /* Safari 4.0 - 8.0 */
+      animation: closeMenuA 0.2s normal forwards ease-in-out;
+      animation-iteration-count: 1;
+      animation-delay: 0.3s;
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  height: 0%;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.9);
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s;
+  ul {
+    opacity: 0;
+    display: none;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
+  li {
+    margin: 0px 0 20px;
+    text-align: center;
+  }
+  a {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 10vw;
+    text-decoration: none;
+    @include bp(sm) {
+      font-size: 4vw;
+      font-weight: 300;
+    }
+  }
+
+  @keyframes splash {
+    from {
+      width: 0%;
+      height: 0%;
+    }
+    50% {
+      width: 150%;
+      height: 150%;
+      top: -10%;
+      left: -10%;
+    }
+    to {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+
+  @keyframes textFade {
+    from {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  &.active {
+    -webkit-animation: splash 0.5s normal forwards ease-in-out; /* Safari 4.0 - 8.0 */
+    animation: splash 0.5s normal forwards ease-in-out;
+    animation-iteration-count: 1;
+    ul {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      -webkit-animation: textFade 1s normal forwards ease-in-out; /* Safari 4.0 - 8.0 */
+      animation: textFade 1s normal forwards ease-in-out;
+      animation-iteration-count: 1;
+      animation-delay: 0.5s;
+    }
+  }
+}

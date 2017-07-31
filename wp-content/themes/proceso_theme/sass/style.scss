@@ -1,0 +1,27 @@
+/*
+Theme Name: Proceso Theme
+Template Theme URI:
+Author: Wam Digital
+Description: Custom Theme Proceso agency.
+Version: 0.1
+*/
+
+@import "compass";
+@import "compass/reset";
+
+//plugins
+@import "partials/mixins",
+        "partials/fullpage",
+        "partials/owl",
+        "partials/owl-theme";
+//partials
+@import "partials/main",
+        "partials/variables",
+        "partials/header",
+        "partials/home",
+        "partials/cases",
+        "partials/studio",
+        "partials/team",
+        "partials/work",
+        "partials/contact",
+        "partials/manifest";

@@ -1,0 +1,30 @@
+@mixin bp($break) {
+	@if $break == xl {
+		@media (min-width: $xl) { @content; }
+	}
+	@else if $break == lg {
+		@media (min-width: $lg) { @content; }
+	}
+	@else if $break == md {
+		@media (min-width: $md) { @content; }
+	}
+	@else if $break == sm {
+		@media (min-width: $sm) { @content; }
+  	}
+  @else {
+		@media ($break) { @content; }
+	}
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin transition($effect, $time) {
+    -webkit-transition: $effect $time ease-in-out;
+        transition: $effect $time ease-in-out;
+}
